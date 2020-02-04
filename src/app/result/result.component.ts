@@ -14,6 +14,7 @@ export class ResultComponent implements OnInit {
   constructor(private quizService: QuizService, private router: Router) { }
 
   ngOnInit() {
+    console.log("result");
     if (parseInt(localStorage.getItem('qnProgress')) == 3) {
       this.quizService.seconds = parseInt(localStorage.getItem('seconds'));
       this.quizService.qnProgress = parseInt(localStorage.getItem('qnProgress'));

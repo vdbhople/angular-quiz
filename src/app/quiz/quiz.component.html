@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
-<div class="row" *ngIf="quizService.qns && this.quizService.qnProgress != 10">
+<div class="row" *ngIf="quizService.qns && this.quizService.qnProgress != 3">
   <div class="col s8 offset-s2">
     <span>Time Elapsed : {{quizService.displayTimeElapsed()}}</span>
     <div class="progress">
-      <div class="determinate" [style.width.%]="(quizService.qnProgress+1)*10"></div>
+      <div class="determinate" [style.width.%]="(quizService.qnProgress+1)*30"></div>
     </div>
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
@@ -15,7 +15,7 @@
       </div>
       <div class="card-action">
         <ul class="collection answer">
-          <ng-container *ngFor="let option of quizService.qns[quizService.qnProgress].options;let i = index">
+          <ng-container  *ngFor="let option of quizService.qns[quizService.qnProgress].options;let i = index">
             <li *ngIf="option != null" class="collection-item" (click)="Answer(quizService.qns[quizService.qnProgress].id,i)">
               {{option}}
             </li>

@@ -12,11 +12,12 @@ export class QuizComponent implements OnInit {
   constructor(private router: Router, private quizService: QuizService) { }
 
   ngOnInit() {
+    console.log("quiz");
     if (parseInt(localStorage.getItem('seconds')) > 0) {
       this.quizService.seconds = parseInt(localStorage.getItem('seconds'));
       this.quizService.qnProgress = parseInt(localStorage.getItem('qnProgress'));
       this.quizService.qns = JSON.parse(localStorage.getItem('qns'));
-      if (this.quizService.qnProgress == 10)
+      if (this.quizService.qnProgress == 3)
         this.router.navigate(['/result']);
       else
         this.startTimer();
